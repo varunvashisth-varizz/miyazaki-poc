@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest>=8,<10
+pip-audit>=2.10,<3
+fonttools>=4.60,<5

@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-25T12:46:14Z",
+  "results": [
+    {
+      "name": "Real offline ingestion pipeline",
+      "status": "Passed",
+      "seconds": 2.032,
+      "detail": {
+        "source_id": "9bc077a9-392b-41be-afec-8f6277de5632"
+      }
+    },
+    {
+      "name": "Real multilingual embedding and structured extraction",
+      "status": "Passed",
+      "seconds": 10.049,
+      "detail": [
+        {
+          "kind": "analyse",
+          "result": {
+            "proposed_facts": [
+              "31bab939-564b-4ec1-afbf-80f095dd7a89",
+              "3230a0c2-5285-4b32-a2ee-dc6bf6e7cf56",
+              "a222a20b-32a9-4e55-bc1b-339faccccc0e",
+              "20dfd2bf-0707-44d3-b6ce-acc5f5ab16f9",
+              "edb4e8a1-56b7-4224-85cd-a8eae9526daf",
+              "fd2e5d11-e1fe-4103-96da-d73c8422d1fc",
+              "cef964ea-d0ab-4a92-b20d-347c136f6c76",
+              "b38a7333-3fff-4dab-9b9e-9cf289f4b073"
+            ]
+          }
+        },
+        {
+          "kind": "index",
+          "result": {
+            "chunks": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "Real Japanese grounded chat",
+      "status": "Passed",
+      "seconds": 1.358,
+      "detail": {
+        "answer": "サンプル精密工業は、48名の従業員を有しています。製品としては、油圧バルブボディとマニホールドを製造しています。これらの製品は建設機械の重要な部品であり、市場の成長と拡大に伴い需要が増加すると推測されます。また、海外の hydraulic component のアプリケーションも見込んでいます。\n\nAIの仮定・要確認：根拠のない内容は確認してください。",
+        "first_token_seconds": 0.484,
+        "events": [
+          "context",
+          "delta",
+          "done"
+        ]
+      }
+    },
+    {
+      "name": "Real English unknown-revenue answer",
+      "status": "Passed",
+      "seconds": 1.727,
+      "detail": {
+        "answer": "The revenue is proposed sourced as \"未確認\" [F:b38a7333-3fff-4dab-9b9e-9cf289f4b073]. Therefore, our verified annual revenue is [F:10000000-0000-4000-8000-000000000009] Proposed Inferred: opportunities: Overseas hydraulic component applications, as the revenue has not been confirmed. We need to record or estimate the revenue based on additional data or market research.\n\nAI assumption, verify: check any unsupported claim.",
+        "first_token_seconds": 0.478,
+        "events": [
+          "context",
+          "delta",
+          "done"
+        ]
+      }
+    },
+    {
+      "name": "Real Japanese document generation and PDF export",
+      "status": "Passed",
+      "seconds": 14.133,
+      "detail": {
+        "document_id": "c1c5876c-dfaf-4bf1-a924-f8ad6e641334",
+        "content": "---\nサンプル精密工業は、精密機械の分野で長年にわたって業界をリードし続けています。当社は、CNC加工と検査のプロセスを確立しており、Construction-equipment OEMs向けの製品を生産しています。主な材料はアルミニウムと鋼で、 Hydraulic valve bodies and manifoldsを製造しています。現在、サンプル精密工業は、宮城郡に1つの工場を所有しています。業界の専門知識と技術により、当社は高品質の製品を提供し続けています。現在の雇用者は48名です。\n--- (AIの仮定・要確認)",
+        "pdf_bytes": 27347
+      }
+    }
+  ],
+  "elapsed": 29.418287303000398
+}

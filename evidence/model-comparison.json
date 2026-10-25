@@ -1,0 +1,10 @@
+[
+  {
+    "model": "qwen2.5:3b",
+    "message": {
+      "role": "assistant",
+      "content": "こんにちは。"
+    },
+    "elapsed": 15.190349009000784
+  }
+]

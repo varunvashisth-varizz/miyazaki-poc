@@ -1,0 +1,1 @@
+"""Miyazaki Industrial AI Copilot."""

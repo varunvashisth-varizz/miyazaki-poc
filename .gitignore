@@ -218,3 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Application runtime
+node_modules/
+data/
+!frontend/dist/
+!frontend/dist/**

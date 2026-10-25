@@ -1,0 +1,3 @@
+npm notice run miyazaki-copilot@0.1.0 test
+npm notice run node scripts/check-locales.mjs
+PASS: 226 bilingual resource pairs. Both locale maps derive from the same keys.

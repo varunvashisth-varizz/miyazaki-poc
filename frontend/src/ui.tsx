@@ -1,0 +1,16 @@
+import React,{useState} from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
+import {X,ArrowUpRight,LoaderCircle} from 'lucide-react';
+import {useTranslation} from 'react-i18next';
+import {clsx} from 'clsx';import {twMerge} from 'tailwind-merge';
+export const cn=(...v:Parameters<typeof clsx>)=>twMerge(clsx(...v));
+export function Button({children,variant='default',className,...p}:React.ButtonHTMLAttributes<HTMLButtonElement>&{variant?:'default'|'outline'|'ghost'|'danger'}){return <button {...p} className={cn('btn',variant,className)}>{children}</button>}
+export function Badge({children,tone='neutral'}:{children:React.ReactNode,tone?:string}){return <span className={'badge '+tone}>{children}</span>}
+export function Empty({text,action}:{text:string,action?:React.ReactNode}){return <div className="empty"><div className="empty-icon">✳</div><h3>{text}</h3>{action}</div>}
+export function Modal({title,children,onClose,wide=false}:{title:string,children:React.ReactNode,onClose:()=>void,wide?:boolean}){return <Dialog.Root open onOpenChange={v=>!v&&onClose()}><Dialog.Portal><Dialog.Overlay className="modal-overlay"/><Dialog.Content className={'modal '+(wide?'wide':'')}><div className="modal-head"><Dialog.Title>{title}</Dialog.Title><Dialog.Close aria-label="Close" className="icon-btn"><X size={19}/></Dialog.Close></div><Dialog.Description className="sr-only">{title}</Dialog.Description>{children}</Dialog.Content></Dialog.Portal></Dialog.Root>}
+export type Field={name:string,label:string,value?:string,type?:string,options?:string[],required?:boolean};
+export function FormModal({title,fields,onSubmit,onClose,children}:{title:string,fields:Field[],onSubmit:(d:Record<string,string>)=>Promise<void>,onClose:()=>void,children?:React.ReactNode}){
+ const {t}=useTranslation();const [busy,setBusy]=useState(false);const [error,setError]=useState('');
+ return <Modal title={title} onClose={onClose}><form onSubmit={async e=>{e.preventDefault();const data=Object.fromEntries(new FormData(e.currentTarget)) as Record<string,string>;setBusy(true);setError('');try{await onSubmit(data);onClose()}catch(e){setError((e as Error).message)}finally{setBusy(false)}}}>{fields.map(f=><label key={f.name} className="field"><span>{f.label}</span>{f.options?<select name={f.name} defaultValue={f.value}>{f.options.map(v=><option key={v}>{v}</option>)}</select>:f.type==='textarea'?<textarea name={f.name} defaultValue={f.value} rows={4}/>:<input name={f.name} defaultValue={f.value} type={f.type||'text'} required={f.required!==false} maxLength={f.type==='textarea'?10000:1000}/>}</label>)}{children}{error&&<div className="error">{error}</div>}<div className="modal-actions"><Button type="button" variant="ghost" onClick={onClose}>{t('cancel')}</Button><Button disabled={busy}>{busy?<LoaderCircle className="spin" size={16}/>:null}{t('save')}</Button></div></form></Modal>
+}
+export function PageHeader({eyebrow,title,description,actions}:{eyebrow?:string,title:string,description?:string,actions?:React.ReactNode}){return <div className="page-header"><div>{eyebrow&&<div className="eyebrow">{eyebrow}</div>}<h1>{title}</h1>{description&&<p>{description}</p>}</div><div className="header-actions">{actions}</div></div>}

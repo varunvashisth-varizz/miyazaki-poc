@@ -1,0 +1,1206 @@
+[
+  {
+    "name": "test_setup_migration_idempotence",
+    "status": "Passed",
+    "seconds": "0.323",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_setup_migration_idempotence hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_library_seed_44",
+    "status": "Passed",
+    "seconds": "0.003",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_library_seed_44 hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_invitation_accept_replay_and_language",
+    "status": "Passed",
+    "seconds": "0.140",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_invitation_accept_replay_and_language hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_invitation_expiry_and_revoke",
+    "status": "Passed",
+    "seconds": "0.071",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_invitation_expiry_and_revoke hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_reset_generic_and_one_use",
+    "status": "Passed",
+    "seconds": "0.164",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_reset_generic_and_one_use hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_failed_login_rate_limit",
+    "status": "Passed",
+    "seconds": "0.396",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_failed_login_rate_limit hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_mfa_enrollment_recovery_and_reuse",
+    "status": "Passed",
+    "seconds": "0.083",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_mfa_enrollment_recovery_and_reuse hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_member_outbox_denied",
+    "status": "Passed",
+    "seconds": "0.064",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_member_outbox_denied hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_document_versions_restore",
+    "status": "Passed",
+    "seconds": "0.088",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_document_versions_restore hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_export_formats_and_japanese_font",
+    "status": "Passed",
+    "seconds": "0.174",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_export_formats_and_japanese_font hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_workspace_zip_export",
+    "status": "Passed",
+    "seconds": "0.067",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_workspace_zip_export hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_plain_pdf_docx_xlsx_pptx_extraction",
+    "status": "Passed",
+    "seconds": "0.134",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_plain_pdf_docx_xlsx_pptx_extraction hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_scanned_pdf_explicit_limitation",
+    "status": "Passed",
+    "seconds": "0.001",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_scanned_pdf_explicit_limitation hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_offline_ingestion_and_injection_jobs",
+    "status": "Passed",
+    "seconds": "0.089",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_offline_ingestion_and_injection_jobs hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_workflow_b1_b3_answers_and_confirmation",
+    "status": "Passed",
+    "seconds": "0.488",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_workflow_b1_b3_answers_and_confirmation hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_job_dedup_and_cancel",
+    "status": "Passed",
+    "seconds": "0.061",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_job_dedup_and_cancel hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_stale_job_recovery",
+    "status": "Passed",
+    "seconds": "0.006",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_stale_job_recovery hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_digest_deduplication",
+    "status": "Passed",
+    "seconds": "0.013",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_digest_deduplication hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_feedback_and_admin_reply",
+    "status": "Passed",
+    "seconds": "0.117",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_feedback_and_admin_reply hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_source_saved_from_document",
+    "status": "Passed",
+    "seconds": "0.073",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_source_saved_from_document hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_usecase_add_and_dependencies",
+    "status": "Passed",
+    "seconds": "0.088",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_usecase_add_and_dependencies hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_deactivation_blocks_access",
+    "status": "Passed",
+    "seconds": "0.064",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_deactivation_blocks_access hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_i18n_keys_and_ime_guard_present",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_i18n_keys_and_ime_guard_present hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_automatic_capture_creates_proposals_without_confirming_mock",
+    "status": "Passed",
+    "seconds": "0.007",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_automatic_capture_creates_proposals_without_confirming_mock hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_adaptive_question_set_mock",
+    "status": "Passed",
+    "seconds": "0.007",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_adaptive_question_set_mock hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_product_merge_delete_and_cross_tenant",
+    "status": "Passed",
+    "seconds": "0.081",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_product_merge_delete_and_cross_tenant hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_library_approval_bound_to_version",
+    "status": "Passed",
+    "seconds": "0.173",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_library_approval_bound_to_version hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_translation_preserves_original_mock",
+    "status": "Passed",
+    "seconds": "0.068",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_translation_preserves_original_mock hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_postgres_pgvector_extension",
+    "status": "Passed",
+    "seconds": "0.003",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_postgres_pgvector_extension hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_auth_required",
+    "status": "Passed",
+    "seconds": "0.005",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_auth_required hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_bad_password_generic",
+    "status": "Passed",
+    "seconds": "0.099",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_bad_password_generic hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_csrf_required",
+    "status": "Passed",
+    "seconds": "0.060",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_csrf_required hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_origin_rejected",
+    "status": "Passed",
+    "seconds": "0.053",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_origin_rejected hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_host_header_rejected",
+    "status": "Passed",
+    "seconds": "0.004",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_host_header_rejected hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_session_cookie_flags",
+    "status": "Passed",
+    "seconds": "0.052",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_session_cookie_flags hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_logout_revokes_session",
+    "status": "Passed",
+    "seconds": "0.057",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_logout_revokes_session hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_session_idle_expiry",
+    "status": "Passed",
+    "seconds": "0.056",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_session_idle_expiry hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[home]",
+    "status": "Passed",
+    "seconds": "0.055",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[home] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[records/fact]",
+    "status": "Passed",
+    "seconds": "0.055",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[records/fact] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[records/source]",
+    "status": "Passed",
+    "seconds": "0.061",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[records/source] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[records/document]",
+    "status": "Passed",
+    "seconds": "0.061",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[records/document] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[records/chat]",
+    "status": "Passed",
+    "seconds": "0.056",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[records/chat] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[records/message]",
+    "status": "Passed",
+    "seconds": "0.054",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[records/message] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[records/workflow]",
+    "status": "Passed",
+    "seconds": "0.055",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[records/workflow] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[records/usecase]",
+    "status": "Passed",
+    "seconds": "0.054",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[records/usecase] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[jobs]",
+    "status": "Passed",
+    "seconds": "0.055",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[jobs] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[settings]",
+    "status": "Passed",
+    "seconds": "0.056",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[settings] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[export-all]",
+    "status": "Passed",
+    "seconds": "0.071",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[export-all] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_endpoints[recommendations]",
+    "status": "Passed",
+    "seconds": "0.063",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_endpoints[recommendations] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_company_cannot_admin",
+    "status": "Passed",
+    "seconds": "0.078",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_company_cannot_admin hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_member_cannot_settings",
+    "status": "Passed",
+    "seconds": "0.061",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_member_cannot_settings hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cannot_create_privileged_record_kind",
+    "status": "Passed",
+    "seconds": "0.085",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cannot_create_privileged_record_kind hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_workspace_reference_blocked",
+    "status": "Passed",
+    "seconds": "0.057",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_workspace_reference_blocked hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_fact_review_history_and_rejection",
+    "status": "Passed",
+    "seconds": "0.092",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_fact_review_history_and_rejection hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_rejected_claim_not_in_historical_context",
+    "status": "Passed",
+    "seconds": "0.056",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_rejected_claim_not_in_historical_context hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_context_profile_off_excludes_history",
+    "status": "Passed",
+    "seconds": "0.057",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_context_profile_off_excludes_history hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_fact_conflict_not_silent",
+    "status": "Passed",
+    "seconds": "0.061",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_fact_conflict_not_silent hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_stale_fact_version_rejected",
+    "status": "Passed",
+    "seconds": "0.066",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_stale_fact_version_rejected hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_operator_only_shared_content",
+    "status": "Passed",
+    "seconds": "0.063",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_operator_only_shared_content hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_coordinator_read_comment_scope",
+    "status": "Passed",
+    "seconds": "0.119",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_coordinator_read_comment_scope hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_tenant_vector_retrieval",
+    "status": "Passed",
+    "seconds": "0.057",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_tenant_vector_retrieval hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_source_delete_excludes_vector_and_reopens_fact",
+    "status": "Passed",
+    "seconds": "0.069",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_source_delete_excludes_vector_and_reopens_fact hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_upload_traversal_filename_never_controls_path",
+    "status": "Passed",
+    "seconds": "0.061",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_upload_traversal_filename_never_controls_path hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_misleading_pdf_rejected",
+    "status": "Passed",
+    "seconds": "0.055",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_misleading_pdf_rejected hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_tenant_download_rejected",
+    "status": "Passed",
+    "seconds": "0.055",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_tenant_download_rejected hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_ssrf_blocked[http://127.0.0.1]",
+    "status": "Passed",
+    "seconds": "0.001",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_ssrf_blocked[http://127.0.0.1] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_ssrf_blocked[http://169.254.169.254]",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_ssrf_blocked[http://169.254.169.254] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_ssrf_blocked[http://[::1]]",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_ssrf_blocked[http://[::1]] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_ssrf_blocked[http://10.0.0.1]",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_ssrf_blocked[http://10.0.0.1] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_ssrf_blocked[file:///etc/passwd]",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_ssrf_blocked[file:///etc/passwd] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_ssrf_blocked[http://user:pass@example.com]",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_ssrf_blocked[http://user:pass@example.com] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_ssrf_blocked[http://example.com:8080]",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_ssrf_blocked[http://example.com:8080] hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_archive_bomb_and_path_rejected",
+    "status": "Passed",
+    "seconds": "0.001",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_archive_bomb_and_path_rejected hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_safe_path_blocks_traversal",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_safe_path_blocks_traversal hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_prompt_injection_fixture_quarantined",
+    "status": "Passed",
+    "seconds": "0.050",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_prompt_injection_fixture_quarantined hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_invalid_citation_detected",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_invalid_citation_detected hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_pending_action_requires_confirmation_and_is_idempotent",
+    "status": "Passed",
+    "seconds": "0.095",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_pending_action_requires_confirmation_and_is_idempotent hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_audit_append_only",
+    "status": "Passed",
+    "seconds": "0.003",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_audit_append_only hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_eval_export_requires_consent",
+    "status": "Passed",
+    "seconds": "0.054",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_eval_export_requires_consent hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_redaction",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_redaction hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_editor_stored_xss_removed",
+    "status": "Passed",
+    "seconds": "0.066",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_editor_stored_xss_removed hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_sql_injection_identifier_is_data",
+    "status": "Passed",
+    "seconds": "0.054",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_sql_injection_identifier_is_data hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_security_headers",
+    "status": "Passed",
+    "seconds": "0.063",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_security_headers hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_production_unsafe_defaults_blocked",
+    "status": "Passed",
+    "seconds": "0.004",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_production_unsafe_defaults_blocked hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_networked_demo_binding_blocked",
+    "status": "Passed",
+    "seconds": "0.003",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_networked_demo_binding_blocked hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_budget_reservation_concurrency",
+    "status": "Passed",
+    "seconds": "0.006",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_budget_reservation_concurrency hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_model_dimension_mismatch_mock",
+    "status": "Passed",
+    "seconds": "0.020",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_model_dimension_mismatch_mock hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_bilingual_publish_gate",
+    "status": "Passed",
+    "seconds": "0.063",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_bilingual_publish_gate hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_known_proposed_certification_cannot_be_published",
+    "status": "Passed",
+    "seconds": "0.001",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_known_proposed_certification_cannot_be_published hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_uncited_prose_after_heading_is_marked",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_uncited_prose_after_heading_is_marked hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_upload_limit_enforced",
+    "status": "Passed",
+    "seconds": "0.056",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_upload_limit_enforced hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_member_cannot_confirm_fact",
+    "status": "Passed",
+    "seconds": "0.056",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_member_cannot_confirm_fact hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_cross_tenant_pending_action",
+    "status": "Passed",
+    "seconds": "0.055",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_cross_tenant_pending_action hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_platform_cannot_forge_operator_approval",
+    "status": "Passed",
+    "seconds": "0.058",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_platform_cannot_forge_operator_approval hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "test_context_budget_is_bounded_and_policy_preserved",
+    "status": "Passed",
+    "seconds": "0.000",
+    "kind": "pytest",
+    "source": "evidence/all-junit.xml",
+    "command": "python -m pytest tests -q --junitxml=evidence/all-junit.xml",
+    "expected": "All assertions in test_context_budget_is_bounded_and_policy_preserved hold against the isolated PostgreSQL/pgvector database.",
+    "actual": "All assertions passed."
+  },
+  {
+    "name": "English login and workspace redirect",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Workspace route profile",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Workspace route workflows",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Workspace route chats",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Workspace route knowledge",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Workspace route ai-use-cases",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Workspace route settings",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Workspace route feedback",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Profile review modal and history",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Japanese language toggle and font asset",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Chat creation and context controls",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Mobile workspace layout",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Offline assets use no external requests",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Admin dashboard, company records and audit",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "No browser runtime errors or server errors",
+    "status": "Passed",
+    "kind": "Browser",
+    "source": "evidence/browser-results.json",
+    "command": "node scripts/browser-tests.mjs",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Real offline ingestion pipeline",
+    "status": "Passed",
+    "seconds": 2.032,
+    "detail": {
+      "source_id": "9bc077a9-392b-41be-afec-8f6277de5632"
+    },
+    "kind": "Live model",
+    "source": "evidence/live-model-results.json",
+    "command": "python scripts/live_smoke.py",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Real multilingual embedding and structured extraction",
+    "status": "Passed",
+    "seconds": 10.049,
+    "detail": [
+      {
+        "kind": "analyse",
+        "result": {
+          "proposed_facts": [
+            "31bab939-564b-4ec1-afbf-80f095dd7a89",
+            "3230a0c2-5285-4b32-a2ee-dc6bf6e7cf56",
+            "a222a20b-32a9-4e55-bc1b-339faccccc0e",
+            "20dfd2bf-0707-44d3-b6ce-acc5f5ab16f9",
+            "edb4e8a1-56b7-4224-85cd-a8eae9526daf",
+            "fd2e5d11-e1fe-4103-96da-d73c8422d1fc",
+            "cef964ea-d0ab-4a92-b20d-347c136f6c76",
+            "b38a7333-3fff-4dab-9b9e-9cf289f4b073"
+          ]
+        }
+      },
+      {
+        "kind": "index",
+        "result": {
+          "chunks": 1
+        }
+      }
+    ],
+    "kind": "Live model",
+    "source": "evidence/live-model-results.json",
+    "command": "python scripts/live_smoke.py",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Real Japanese grounded chat",
+    "status": "Passed",
+    "seconds": 1.358,
+    "detail": {
+      "answer": "サンプル精密工業は、48名の従業員を有しています。製品としては、油圧バルブボディとマニホールドを製造しています。これらの製品は建設機械の重要な部品であり、市場の成長と拡大に伴い需要が増加すると推測されます。また、海外の hydraulic component のアプリケーションも見込んでいます。\n\nAIの仮定・要確認：根拠のない内容は確認してください。",
+      "first_token_seconds": 0.484,
+      "events": [
+        "context",
+        "delta",
+        "done"
+      ]
+    },
+    "kind": "Live model",
+    "source": "evidence/live-model-results.json",
+    "command": "python scripts/live_smoke.py",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Real English unknown-revenue answer",
+    "status": "Passed",
+    "seconds": 1.727,
+    "detail": {
+      "answer": "The revenue is proposed sourced as \"未確認\" [F:b38a7333-3fff-4dab-9b9e-9cf289f4b073]. Therefore, our verified annual revenue is [F:10000000-0000-4000-8000-000000000009] Proposed Inferred: opportunities: Overseas hydraulic component applications, as the revenue has not been confirmed. We need to record or estimate the revenue based on additional data or market research.\n\nAI assumption, verify: check any unsupported claim.",
+      "first_token_seconds": 0.478,
+      "events": [
+        "context",
+        "delta",
+        "done"
+      ]
+    },
+    "kind": "Live model",
+    "source": "evidence/live-model-results.json",
+    "command": "python scripts/live_smoke.py",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  },
+  {
+    "name": "Real Japanese document generation and PDF export",
+    "status": "Passed",
+    "seconds": 14.133,
+    "detail": {
+      "document_id": "c1c5876c-dfaf-4bf1-a924-f8ad6e641334",
+      "content": "---\nサンプル精密工業は、精密機械の分野で長年にわたって業界をリードし続けています。当社は、CNC加工と検査のプロセスを確立しており、Construction-equipment OEMs向けの製品を生産しています。主な材料はアルミニウムと鋼で、 Hydraulic valve bodies and manifoldsを製造しています。現在、サンプル精密工業は、宮城郡に1つの工場を所有しています。業界の専門知識と技術により、当社は高品質の製品を提供し続けています。現在の雇用者は48名です。\n--- (AIの仮定・要確認)",
+      "pdf_bytes": 27347
+    },
+    "kind": "Live model",
+    "source": "evidence/live-model-results.json",
+    "command": "python scripts/live_smoke.py",
+    "expected": "Scenario assertions complete successfully with no substituted model response.",
+    "actual": "Scenario assertions passed.",
+    "environment": "evidence/environment.json"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "English login and workspace redirect",
+    "status": "Passed"
+  },
+  {
+    "name": "Workspace route profile",
+    "status": "Passed"
+  },
+  {
+    "name": "Workspace route workflows",
+    "status": "Passed"
+  },
+  {
+    "name": "Workspace route chats",
+    "status": "Passed"
+  },
+  {
+    "name": "Workspace route knowledge",
+    "status": "Passed"
+  },
+  {
+    "name": "Workspace route ai-use-cases",
+    "status": "Passed"
+  },
+  {
+    "name": "Workspace route settings",
+    "status": "Passed"
+  },
+  {
+    "name": "Workspace route feedback",
+    "status": "Passed"
+  },
+  {
+    "name": "Profile review modal and history",
+    "status": "Passed"
+  },
+  {
+    "name": "Japanese language toggle and font asset",
+    "status": "Passed"
+  },
+  {
+    "name": "Chat creation and context controls",
+    "status": "Passed"
+  },
+  {
+    "name": "Mobile workspace layout",
+    "status": "Passed"
+  },
+  {
+    "name": "Offline assets use no external requests",
+    "status": "Passed"
+  },
+  {
+    "name": "Admin dashboard, company records and audit",
+    "status": "Passed"
+  },
+  {
+    "name": "No browser runtime errors or server errors",
+    "status": "Passed"
+  }
+]

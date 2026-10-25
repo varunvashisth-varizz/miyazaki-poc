@@ -1,0 +1,1764 @@
+[
+  {
+    "id": "US-A01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want to create a company workspace with its name, industry, size band, contact person and default language, so that a new member company is onboarded in minutes.",
+    "acceptance_criteria": "Workspace created with a unique slug; appears in the companies list with status Invited; the action is in the audit log.",
+    "status": "Implemented",
+    "behaviour": "Workspace creation, unique slugs, industry/size/language and audit.",
+    "tests": [
+      "test_deactivation_blocks_access"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want to invite the Company Admin by email, so that the company can start without my help.",
+    "acceptance_criteria": "Invitation email in the workspace language with a link valid for 7 days; resend and revoke available; status moves to Onboarding when accepted.",
+    "status": "Implemented",
+    "behaviour": "Seven-day single-use invitations, resend/revoke and localised protected outbox.",
+    "tests": [
+      "test_invitation_accept_replay_and_language",
+      "test_invitation_expiry_and_revoke"
+    ],
+    "gaps": "Live email delivery is optional and not validated.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As an invitee, I want to accept the invitation, set my password and choose my language, so that I can enter my workspace.",
+    "acceptance_criteria": "Password policy of 12 characters or more enforced; language saved to the user; the onboarding wizard opens on first entry.",
+    "status": "Partial",
+    "behaviour": "Invitation acceptance, password policy, saved language and onboarding entry.",
+    "tests": [
+      "test_invitation_accept_replay_and_language"
+    ],
+    "gaps": "Invited accounts now open the wizard on first login; seeded demo accounts intentionally bypass that first-run flag.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A04",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want to invite colleagues as Members, so that the people who know each area can contribute.",
+    "acceptance_criteria": "Invite by email with role Member; remove a member; pending invitations listed with resend.",
+    "status": "Implemented",
+    "behaviour": "Member invitations, pending list, resend and membership removal.",
+    "tests": [
+      "test_invitation_expiry_and_revoke"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A05",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want sign-in, sign-out, password reset and an idle timeout, so that my account stays safe.",
+    "acceptance_criteria": "Reset link valid for 1 hour; session ends after 12 hours idle; repeated failed sign-ins are rate-limited and logged.",
+    "status": "Implemented",
+    "behaviour": "Login/logout, hashed tokens, password reset, idle expiry and database failed-login limiting.",
+    "tests": [
+      "test_bad_password_generic",
+      "test_logout_revokes_session",
+      "test_session_idle_expiry",
+      "test_reset_generic_and_one_use",
+      "test_failed_login_rate_limit"
+    ],
+    "gaps": "No independent penetration test.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A06",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As an admin, I want multi-factor authentication with an authenticator app, required for admin roles, so that admin accounts are protected.",
+    "acceptance_criteria": "Enrolment forced at first sign-in for Super Admin and Platform Admin; recovery codes issued; MFA status shown in the users page.",
+    "status": "Implemented",
+    "behaviour": "Authenticator enrolment, codes, hashed recovery codes and verification.",
+    "tests": [
+      "test_mfa_enrollment_recovery_and_reuse"
+    ],
+    "gaps": "Local demo bypass is visible and enabled; production rejects this configuration.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A07",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As the platform, I must keep every workspace's data isolated, so that no company ever sees another's.",
+    "acceptance_criteria": "Every query is scoped by workspace on the server; automated tests prove cross-workspace requests are refused; retrieval indexes are partitioned per workspace.",
+    "status": "Implemented",
+    "behaviour": "Workspace-scoped API, records, vectors, files and relationships.",
+    "tests": [
+      "test_cross_workspace_endpoints",
+      "test_tenant_vector_retrieval",
+      "test_cross_workspace_reference_blocked"
+    ],
+    "gaps": "Security assurance is limited to the recorded test set.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A08",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As a Company Admin, I want to grant a named Coordinator read or comment access, so that our advisor is prepared before meetings.",
+    "acceptance_criteria": "Grant and revoke from workspace settings; the grant is in the audit log; the Coordinator can read and comment but not edit.",
+    "status": "Partial",
+    "behaviour": "Named Coordinator grants/revocation and shared-profile read/comment checks.",
+    "tests": [
+      "test_coordinator_read_comment_scope"
+    ],
+    "gaps": "Document/workflow-specific Coordinator sharing remains unavailable.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A09",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want to switch the interface between Japanese and English, so that I work in my own language.",
+    "acceptance_criteria": "Interface, emails and AI replies follow the user's language; a user can ask the AI for one reply in the other language.",
+    "status": "Partial",
+    "behaviour": "Persisted JA/EN switch, AI language and localised invitation/reset templates.",
+    "tests": [
+      "test_invitation_accept_replay_and_language",
+      "browser Japanese language toggle and font asset"
+    ],
+    "gaps": "Some statuses, domain content and secondary labels remain English.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-A10",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want to deactivate and reactivate a workspace, so that a company that leaves the programme loses access without losing data.",
+    "acceptance_criteria": "Deactivated users cannot sign in; data is kept for the retention period; reactivation restores everything unchanged.",
+    "status": "Implemented",
+    "behaviour": "Workspace deactivation/reactivation enforced by access checks; data retained.",
+    "tests": [
+      "test_deactivation_blocks_access"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-B01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want a companies list with status, profile completeness, use-case count and last activity, so that I see who needs attention.",
+    "acceptance_criteria": "Statuses Invited, Onboarding, Active, Dormant (no activity for 30 days), Deactivated; filter, sort and CSV export.",
+    "status": "Implemented",
+    "behaviour": "Companies, calculated dormancy, filtering, sorting in API order, completeness/counts and CSV.",
+    "tests": [
+      "browser Admin dashboard, company records and audit"
+    ],
+    "gaps": "Name, completeness and activity sorting are exposed; broader sorting combinations are not independently tested.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-B02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want a company record with the shared profile summary, users, workflow and document counts and open requests, so that I can prepare a conversation.",
+    "acceptance_criteria": "Shows only sections the company has shared; counts never expose content; links to the feedback and requests from that company.",
+    "status": "Implemented",
+    "behaviour": "Shared confirmed sections and aggregate counts without private content.",
+    "tests": [
+      "test_operator_only_shared_content"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-B03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want a portfolio dashboard, so that I can port on the programme.             comp use aggr sett",
+    "acceptance_criteria": "Counts by status; onboarding funnel (invited, accepted, profile approved, first workflow done); weekly active anies; industries; most-chosen cases; feedback sentiment; all egated and respecting sharing ings.",
+    "status": "Partial",
+    "behaviour": "Status, funnel, weekly activity, industry and sentiment aggregates.",
+    "tests": [
+      "browser Admin dashboard, company records and audit"
+    ],
+    "gaps": "Most-chosen-use-case chart and precise profile-approval event definition require completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-B04",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Platform Admin, I want to manage the use-case library, so that content improves without a deploy.",
+    "acceptance_criteria": "Create and edit use cases with Japanese and English fields, stage, entry point, horizon, autonomy level and data needed; draft, review, published states; version history.",
+    "status": "Implemented",
+    "behaviour": "Platform editor, bilingual fields, states, version snapshots and Operator approval gate.",
+    "tests": [
+      "test_bilingual_publish_gate"
+    ],
+    "gaps": "Draft seed content is not approved Atomic Loops material.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-B05",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Platform Admin, I want to manage workflow templates and question banks, so that discovery improves over time.",
+    "acceptance_criteria": "Steps, questions, branching rules and outputs editable in both languages; publish creates a new template version; running workflows keep their version.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-B06",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want a feedback inbox, so that every piece of feedback is seen and answered.",
+    "acceptance_criteria": "All feedback with type, page and a reference to the AI output; statuses New, In review, Addressed; tags; reply to the user; export.",
+    "status": "Implemented",
+    "behaviour": "Feedback inbox, tags/reply/status service and CSV.",
+    "tests": [
+      "test_feedback_and_admin_reply"
+    ],
+    "gaps": "Tag controls are not exposed in the simple UI.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-B07",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want an audit log of admin actions and of any Operator access to company data, so that access is accountable.",
+    "acceptance_criteria": "Immutable entries with actor, action, target and time; filter by actor, company and date; retained for 1 year.",
+    "status": "Implemented",
+    "behaviour": "Database trigger blocks audit mutation; access/action logs and filtering/search.",
+    "tests": [
+      "test_audit_append_only",
+      "test_operator_only_shared_content"
+    ],
+    "gaps": "Retention operations and independent tamper review remain production tasks.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-B08",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Super Admin, I want an Admin Copilot that carries out admin requests in natural language, so that routine administration takes seconds.",
+    "acceptance_criteria": "The AI shows the exact action it will take; nothing executes before confirmation; every action is logged; portfolio questions are answered from aggregated data only.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-B09",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Super Admin, I want to post announcements, so that every company hears about events and deadlines.",
+    "acceptance_criteria": "Announcement shown on every workspace home; included in the email digest; can be scheduled and withdrawn.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-B10",
+    "priority": "Won't (v1)",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Super Admin, I want to record programmes, events and partners and let the AI match companies to them, so that the connections the Operator makes are systematic.",
+    "acceptance_criteria": "Deferred to v2; companies opt in to matching; matches are suggestions the Operator confirms.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v2.",
+    "evidence": []
+  },
+  {
+    "id": "US-C01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want an onboarding wizard that takes our website, product details and basic facts, so that the AI can start building our profile.",
+    "acceptance_criteria": "Fields for website URLs, product text, catalogue and photo uploads, employees, revenue band, plants, certifications, industries served and customer types; progress saved; resumable.",
+    "status": "Partial",
+    "behaviour": "Resumable basic wizard and text/file/photo upload pipeline.",
+    "tests": [
+      "test_plain_pdf_docx_xlsx_pptx_extraction",
+      "browser Profile review modal and history"
+    ],
+    "gaps": "Wizard does not expose every SRS field; photos have no interpretation.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want the AI to read our website and extract what it learns, so that I do not retype what is already public.",
+    "acceptance_criteria": "robots.txt respected; depth and page limits applied; every extracted fact carries its source URL; live progress; completes within 5 minutes for sites up to 200 pages; a failed fetch shows a clear message and a manual entry fallback.",
+    "status": "Partial",
+    "behaviour": "Live/public and offline crawl, robots policy, redirects, limits, source URLs and progress.",
+    "tests": [
+      "test_offline_ingestion_and_injection_jobs",
+      "live Real offline ingestion pipeline"
+    ],
+    "gaps": "Live-site performance and DNS rebinding cases need broader validation; failure is conservative.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want the AI to analyse each product's function, process, customers, differentiators and potential, so that we see our products the way a market analyst would.",
+    "acceptance_criteria": "One entry per product or product family with provenance and confidence per statement; the user can add, merge, rename or delete products; adjacent applications and potential markets are labelled Inferred.",
+    "status": "Partial",
+    "behaviour": "Structured extraction and product add/edit/merge/delete domain endpoints.",
+    "tests": [
+      "live Real multilingual embedding and structured extraction"
+    ],
+    "gaps": "Product merge UI is present; deletion UI and per-statement product analysis need further work.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C04",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want to confirm, edit or reject every fact on the generated profile, so that the profile only holds what is true.",
+    "acceptance_criteria": "Sections: Overview, Products and services, Markets and customers, Manufacturing capabilities, Supply chain and partners, Competitive position, Potential and opportunities, Open questions; each fact shows Stated, Sourced or Inferred and a confidence; rejected facts leave the profile and the AI context; every change is logged with the editor and time.",
+    "status": "Implemented",
+    "behaviour": "Eight sections, provenance/confidence, confirm/edit/reject and history.",
+    "tests": [
+      "test_fact_review_history_and_rejection",
+      "test_stale_fact_version_rejected"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C05",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want a completeness score and a gap list, so that I know what to answer next.",
+    "acceptance_criteria": "Score per section and overall; each gap names the workflow or question that would fill it; the home page shows the top three gaps.",
+    "status": "Implemented",
+    "behaviour": "Deterministic required fields, per-section/overall score, top gaps with question/template links.",
+    "tests": [
+      "browser English login and workspace redirect"
+    ],
+    "gaps": "Completeness rules are documented defaults, not Operator-approved scoring.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C06",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want facts I state in chats, answers and documents to flow into the profile after review, so that the profile keeps up with what we tell the AI.",
+    "acceptance_criteria": "Proposed facts queue with provenance; the Company Admin confirms or rejects; per-fact history with before and after values.",
+    "status": "Partial",
+    "behaviour": "Workflow facts and explicit chat-to-profile proposals with review and history.",
+    "tests": [
+      "test_workflow_b1_b3_answers_and_confirmation",
+      "test_fact_review_history_and_rejection"
+    ],
+    "gaps": "User messages now enqueue automatic fact capture; document-wide automatic capture and extraction quality need further validation.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C07",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As a Company Admin, I want to re-run the website analysis, so that the profile follows changes to our site.",
+    "acceptance_criteria": "A diff of new, changed and removed facts is shown; confirmed facts are never overwritten without review.",
+    "status": "Partial",
+    "behaviour": "Re-analysis creates a new source and preserves confirmed facts.",
+    "tests": [
+      "test_fact_conflict_not_silent"
+    ],
+    "gaps": "Dedicated added/changed/removed fact diff UI remains incomplete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C08",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want to choose which profile sections the Operator can see, so that we control what leaves the company.",
+    "acceptance_criteria": "Default: overview and products summary; changes logged; shared sections carry a \"visible to Operator\" marker.",
+    "status": "Implemented",
+    "behaviour": "Default overview/products sharing, settings, visibility rules and audit.",
+    "tests": [
+      "test_operator_only_shared_content"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C09",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As a Company Admin, I want to export the profile, so that I can send it to a bank or a customer.",
+    "acceptance_criteria": "DOCX and PDF in Japanese or English; the export carries the as-of date and the provenance legend.",
+    "status": "Partial",
+    "behaviour": "Japanese-font PDF and DOCX profile exports with date and provenance legend.",
+    "tests": [
+      "test_export_formats_and_japanese_font"
+    ],
+    "gaps": "Per-fact alternate-language translation exists; whole-profile translated export remains incomplete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-C10",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As the platform, I must treat website and document content as data, never as instructions, so that a crafted page cannot change the AI's behaviour.",
+    "acceptance_criteria": "Instruction-like text found in sources is ignored and flagged on the source; a red- team test set of injected pages passes before each release.",
+    "status": "Partial",
+    "behaviour": "Source instruction separation, suspicious source quarantine, private-address blocking.",
+    "tests": [
+      "test_prompt_injection_fixture_quarantined",
+      "test_offline_ingestion_and_injection_jobs"
+    ],
+    "gaps": "Regex quarantine is not comprehensive; full adversarial golden set remains required.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-D01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want the AI to propose the first workflows once our profile exists, so that we know where to start.",
+    "acceptance_criteria": "Proposals: Company discovery, one Product deep-dive per main product, Market and product-market fit, Manufacturing and AI readiness; each with a rationale, the number of questions and uploads involved; the user starts, defers or dismisses each.",
+    "status": "Partial",
+    "behaviour": "B1-B4 initial proposals and product-specific deep dives; start/defer/dismiss.",
+    "tests": [
+      "test_workflow_b1_b3_answers_and_confirmation"
+    ],
+    "gaps": "AI rationale generation is queued per profile; rationale relevance is not yet reviewer-scored.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-D02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want a workflow to be a clear sequence of steps with a status and an owner, so that I always know what is next.",
+    "acceptance_criteria": "Step types: question set, upload request, AI analysis, review and approval, output document; statuses Not started, In progress, Waiting for review, Done, Skipped; owner and optional due date per step.",
+    "status": "Implemented",
+    "behaviour": "Generic step types/statuses, owner/due-date fields and versioned templates.",
+    "tests": [
+      "test_workflow_b1_b3_answers_and_confirmation"
+    ],
+    "gaps": "Owner/due-date editing UI needs expansion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-D03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want the AI to ask questions in small, adaptive sets, so that answering feels like a conversation rather than a form.",
+    "acceptance_criteria": "5 to 10 questions per set; follow-ups depend on earlier answers; answer by text, voice or upload; \"I don't know\" and \"assign to a colleague\" available; answers become Stated facts in the review queue.",
+    "status": "Partial",
+    "behaviour": "Five-question sets, text answers, unknown/assignment and proposed Stated facts.",
+    "tests": [
+      "test_workflow_b1_b3_answers_and_confirmation"
+    ],
+    "gaps": "AI generates five bilingual follow-ups after the first five answers, up to ten total; live relevance scoring and upload answer interpretation remain unvalidated. Voice deferred.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-D04",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want to see a workflow as a stepper and as a dependency view, so that I understand what each step feeds.",
+    "acceptance_criteria": "Stepper with progress; dependency view shows which profile sections, documents and use cases each step feeds and which steps wait on which.",
+    "status": "Partial",
+    "behaviour": "Stepper and simple dependency/feed display.",
+    "tests": [
+      "browser Workspace route workflows"
+    ],
+    "gaps": "Detailed profile/document/use-case dependency graph requires expansion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-D05",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want every workflow to have its own chat, so that I can ask the AI about the step I am on.",
+    "acceptance_criteria": "Messages carry the workflow context; the AI can mark a step done or move to the next one from the chat after confirmation.",
+    "status": "Implemented",
+    "behaviour": "Own linked chat and version-checked confirmed transitions.",
+    "tests": [
+      "test_pending_action_requires_confirmation_and_is_idempotent",
+      "test_workflow_b1_b3_answers_and_confirmation"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-D06",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want to create my own workflow from a template or by describing a goal, so that the AI works on what matters to us.",
+    "acceptance_criteria": "The AI drafts the steps from the goal; the user reorders, adds, removes and assigns steps before starting.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-D07",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a step owner, I want reminders and the ability to pause and resume, so that workflows do not stall silently.",
+    "acceptance_criteria": "Notification when a step waits on me; weekly digest of open steps; pause and resume keep all answers.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-D08",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want a completed workflow to deliver its outputs and propose what comes next, so that momentum continues.",
+    "acceptance_criteria": "Outputs produced as defined by the template (profile updates, a document, use-case candidates); next workflows proposed with rationale.",
+    "status": "Partial",
+    "behaviour": "B1/B3 complete into a findings document and confirmed profile updates.",
+    "tests": [
+      "test_workflow_b1_b3_answers_and_confirmation"
+    ],
+    "gaps": "Template-specific analyses and automatic next-proposal rationale need completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-D09",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As a Member, I want to turn any chat into a workflow, so that a good conversation becomes structured work.",
+    "acceptance_criteria": "\"Turn this into a workflow\" drafts steps from the conversation; the user edits before starting.",
+    "status": "Partial",
+    "behaviour": "Confirmed chat-to-B1 workflow draft path is implemented.",
+    "tests": [
+      "test_pending_action_requires_confirmation_and_is_idempotent"
+    ],
+    "gaps": "General AI step drafting and editing remain deferred.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want a list of chats I can search, pin, rename and archive, and to start a chat blank, from a template, from a workflow or from a document, so that I find and start conversations quickly.",
+    "acceptance_criteria": "List sorted by last activity; search across titles and content; a chat started from a workflow or document opens with that context attached.",
+    "status": "Partial",
+    "behaviour": "Thread creation, pin/rename/archive and workflow/document context.",
+    "tests": [
+      "browser Chat creation and context controls"
+    ],
+    "gaps": "Message-content search and archived-thread recovery UI remain incomplete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want replies that stream in, with formatting and citations, and actions on every essage, so that I can use what he AI says.",
+    "acceptance_criteria": "Streaming starts within 2 seconds at p95; markdown and tables render; citations link to profile facts, sources or web pages; actions: copy, feedback, save to knowledge base, turn into document, turn into workflow, propose to profile.",
+    "status": "Partial",
+    "behaviour": "Real SSE, Markdown/tables, citation context, copy/save/document/workflow/profile actions.",
+    "tests": [
+      "live Real Japanese grounded chat",
+      "test_pending_action_requires_confirmation_and_is_idempotent"
+    ],
+    "gaps": "Two-second p95 not established; streamed text needs stronger claim validation.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to see and control what context the AI uses, so that I trust its answers.",
+    "acceptance_criteria": "Context panel lists the profile sections, sources and workflow in use as toggles; the AI states when it answers without the profile.",
+    "status": "Implemented",
+    "behaviour": "Real profile/source/workflow toggles and profile-off notice.",
+    "tests": [
+      "test_context_profile_off_excludes_history",
+      "browser Chat creation and context controls"
+    ],
+    "gaps": "Profile section-level toggles are now exposed in the context panel; dedicated per-section browser assertions remain to add.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E04",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Member, I want to talk to the AI by voice, so that I can use it on the floor or while driving.",
+    "acceptance_criteria": "Push-to-talk and hands-free modes; Japanese and English recognition; optional spoken replies; transcript saved as the message text; works on a phone browser.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-E05",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to attach files in a chat, so that the AI can read a drawing, a price list or a report.",
+    "acceptance_criteria": "PDF, images, spreadsheets, Word and PowerPoint up to 25 MB per file; the attachment can be saved as a source.",
+    "status": "Partial",
+    "behaviour": "25 MB PDF/DOCX/XLSX/PPTX/text/image uploads; parsing of selectable text.",
+    "tests": [
+      "test_plain_pdf_docx_xlsx_pptx_extraction",
+      "test_misleading_pdf_rejected"
+    ],
+    "gaps": "Image/scanned interpretation deferred by user.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E06",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As a Member, I want suggested prompts based on our situation, so that I know what the AI can do next.",
+    "acceptance_criteria": "Suggestions drawn from open gaps, waiting steps and newly relevant library use cases; dismissible.",
+    "status": "Partial",
+    "behaviour": "Gap-based suggestions from home API and sample chat prompts.",
+    "tests": [
+      "browser English login and workspace redirect"
+    ],
+    "gaps": "Waiting-step/library-based suggestions and dismissal need completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E07",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want facts we state in chat to be captured for the profile, so that nothing we say is lost.",
+    "acceptance_criteria": "The AI proposes recognised facts to the review queue with the message as source; nothing enters the profile without confirmation.",
+    "status": "Partial",
+    "behaviour": "Explicit message-to-fact proposal, source reference and Company Admin review.",
+    "tests": [
+      "test_fact_review_history_and_rejection"
+    ],
+    "gaps": "Automatic user-message capture now runs as a background job; a mocked regression verifies proposed-only writes. Live capture quality remains unvalidated.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E08",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As a Member, I want to share a chat with colleagues and export it, so that the team can build on it.",
+    "acceptance_criteria": "Share with members; export as Markdown or PDF; a shared chat shows who said what.",
+    "status": "Partial",
+    "behaviour": "Chat Markdown/PDF export and shared-with metadata.",
+    "tests": [
+      "test_export_formats_and_japanese_font"
+    ],
+    "gaps": "Explicit colleague sharing UI and per-chat visibility enforcement need completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E09",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want a monthly token budget per workspace, so that costs stay predictable.",
+    "acceptance_criteria": "Default set in admin settings; the workspace sees a notice at 80% and a clear message at the limit; the Super Admin can raise it.",
+    "status": "Implemented",
+    "behaviour": "Atomic reservations, calendar-month usage, 80% state and admin limit changes.",
+    "tests": [
+      "test_budget_reservation_concurrency"
+    ],
+    "gaps": "Home displays the 80 percent warning; the boundary has a backend reservation test but not a dedicated browser assertion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-E10",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want long chats to keep working, so that a conversation can run for weeks.",
+    "acceptance_criteria": "Older messages are summarised into the context; the summary is visible in the context panel.",
+    "status": "Partial",
+    "behaviour": "Bounded history, queued summary and visible summary area.",
+    "tests": [
+      "test_rejected_claim_not_in_historical_context"
+    ],
+    "gaps": "Summaries now use older turns and a revision-valid prior summary. Long-duration preservation and quality are not validated.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to add files and web pages as sources, so that the AI knows what we know.",
+    "acceptance_criteria": "PDF, DOCX, XLSX, PPTX, images, text and URLs; OCR for scanned Japanese PDFs; statuses Processing, Ready, Failed; automatic tags; 1 GB per workspace in v1, configurable.",
+    "status": "Partial",
+    "behaviour": "File/URL ingestion, tags/statuses, quotas and embeddings.",
+    "tests": [
+      "test_plain_pdf_docx_xlsx_pptx_extraction",
+      "live Real multilingual embedding and structured extraction"
+    ],
+    "gaps": "Japanese OCR is explicitly deferred; image records are preview-only.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to open a source and see what the AI extracted, so that I can check and clean it.",
+    "acceptance_criteria": "Extracted text, AI summary and detected facts shown; re-index available; deleting a source removes it from retrieval within one minute.",
+    "status": "Implemented",
+    "behaviour": "Extraction/summary, re-index and immediate retrieval exclusion on deletion.",
+    "tests": [
+      "test_source_delete_excludes_vector_and_reopens_fact"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to generate a document from a prompt and a template, so that a first draft takes minutes.",
+    "acceptance_criteria": "Template or free prompt; context chosen from profile, selected sources and a workflow's answers; language and length chosen; the request is saved for re-use.",
+    "status": "Partial",
+    "behaviour": "Prompt/template selection, context API, language and saved request.",
+    "tests": [
+      "live Real Japanese document generation and PDF export"
+    ],
+    "gaps": "Length is selected in the UI; explicit source/workflow picker UI needs completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F04",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As a Member, I want to approve an outline before the full draft, so that the document has the structure I need.",
+    "acceptance_criteria": "Outline shown first; sections can be added or removed; each section can be regenerated on its own.",
+    "status": "Partial",
+    "behaviour": "Outline stored before generation and available in draft editor.",
+    "tests": [
+      "browser Workspace route knowledge"
+    ],
+    "gaps": "Section-specific regeneration and formal outline editing are incomplete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F05",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want an editor with AI actions on selected text, so that I finish the document without leaving it.",
+    "acceptance_criteria": "Rich text; rewrite, shorten, expand, translate between Japanese and English, insert profile facts, build a table from sources; comments; versions with compare and restore.",
+    "status": "Partial",
+    "behaviour": "Rich text, AI rewrite/shorten/expand/translate/table actions, fact insertion, comments, version compare/restore.",
+    "tests": [
+      "test_document_versions_restore",
+      "test_editor_stored_xss_removed"
+    ],
+    "gaps": "Formatting/table fidelity across rich editor and all exports is not fully preserved.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F06",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to export and share a document, so that it reaches banks, customers and the Operator.",
+    "acceptance_criteria": "DOCX, PDF and Markdown export; share with members and, if granted, the Coordinator.",
+    "status": "Partial",
+    "behaviour": "DOCX/PDF/Markdown and local workspace downloads.",
+    "tests": [
+      "test_export_formats_and_japanese_font"
+    ],
+    "gaps": "Explicit member/Coordinator sharing controls need completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F07",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to save a finished document as a source, so that later chats and documents build on it.",
+    "acceptance_criteria": "One action adds the document to the knowledge base and indexes it; the source shows its origin.",
+    "status": "Implemented",
+    "behaviour": "Save document with origin/version and enqueue indexing.",
+    "tests": [
+      "test_source_saved_from_document"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F08",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Platform Admin, I want to maintain document templates, and as a Company Admin to save our own, so that drafts match how we write.",
+    "acceptance_criteria": "Platform templates in both languages; a company template saved from any document; templates versioned.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-F09",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want every statement in a generated document to show whether it is sourced, so that I know what to verify.",
+    "acceptance_criteria": "Sourced statements link to the source; unsourced statements carry an \"AI assumption, verify\" marker; the export can include or exclude the markers.",
+    "status": "Partial",
+    "behaviour": "Citation checks, conservative uncited-paragraph markers and export marker toggle.",
+    "tests": [
+      "test_invalid_citation_detected",
+      "live Real Japanese document generation and PDF export"
+    ],
+    "gaps": "Every-statement citation/assumption accuracy is not established.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-F10",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Member, I want to translate a whole document between Japanese and English, so that one draft serves both audiences.",
+    "acceptance_criteria": "Workspace glossary keeps product and process terms consistent; the translation becomes a new version.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v2.",
+    "evidence": []
+  },
+  {
+    "id": "US-G01",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want planning canvases pre-filled from our profile, so that planning starts from what the AI already knows.",
+    "acceptance_criteria": "Business model canvas, product- market fit board (segment, problem, product, alternatives, evidence, status), go-to-market plan, three-year financial outline, export readiness; each cell editable; AI fills carry provenance.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-G02",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want the AI to challenge a canvas, so that weak assumptions are found before a bank or a customer finds them.",
+    "acceptance_criteria": "A \"challenge\" action lists the weakest assumptions, why, and the evidence that would resolve each.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-G03",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Member, I want each hypothesis to link to its evidence, so that we track what is proven.",
+    "acceptance_criteria": "Links to sources, chats and workflow answers; statuses Untested, Validated, Invalidated.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-G04",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want an action plan derived from the canvases, so that planning turns into tasks.",
+    "acceptance_criteria": "Tasks with owner and due date; progress shown on home.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-G05",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want to export the planning pack, so that it can be presented or submitted.",
+    "acceptance_criteria": "One document from all canvases in the chosen language, through the document studio.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-H01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want a short explainer of how AI fits a factory, so that I can talk about it with my team.",
+    "acceptance_criteria": "Covers the five audit stages, the three outcomes of a report, the four steps (descriptive, predictive, prescriptive, autonomous), the L0 to L5 ladder, the three horizons and the value principles (measured before modelled, targets derived, haircuts applied, overlaps combined); each concept has one example; Japanese and English; readable in under 15 minutes.",
+    "status": "Partial",
+    "behaviour": "Bilingual draft method overview, stages, ladder, horizons and principles.",
+    "tests": [
+      "browser Workspace route ai-use-cases"
+    ],
+    "gaps": "Three report outcomes and examples require Atomic Loops source material.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-H02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want a factory map I can click through stage by stage, so that I see where AI applies in a plant like ours.",
+    "acceptance_criteria": "Seven operational stages (inward, warehouse, kitting, assembly, final inspection, packaging, logistics) plus lanes for planning and supply chain, maintenance, quality, R&D and product discovery, and sales and product-market fit; selecting a stage shows typical human operations, software systems and example use cases; stages indicated by our profile are highlighted.",
+    "status": "Partial",
+    "behaviour": "Seven-stage factory map, supporting lanes and draft descriptions.",
+    "tests": [
+      "browser Workspace route ai-use-cases"
+    ],
+    "gaps": "Profile-derived highlights and complete stage-specific operations/systems need completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-H03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want each library use case as a card I can search and filter, so that I can compare options.",
+    "acceptance_criteria": "Card fields: title, stage, problem solved, how it works, data needed, systems touched, entry point (software only, camera based, machine IoT), horizon, autonomy level, prerequisites, what good looks like; value shown only as observed ranges with no client named; Japanese and English; filters by stage, entry point, horizon and level.",
+    "status": "Partial",
+    "behaviour": "44 bilingual baseline cards, enriched draft fields, search and filters.",
+    "tests": [
+      "test_library_seed_44",
+      "browser Workspace route ai-use-cases"
+    ],
+    "gaps": "Draft fields are generic and require domain/Japanese review; no invented measured value ranges.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-H04",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want the AI to recommend use cases that fit our profile, so that we do not read the whole library.",
+    "acceptance_criteria": "Ranked list with a rationale per use case tied to profile facts and the readiness gaps it would face; \"add to my use cases\" in one click; feedback on every recommendation.",
+    "status": "Partial",
+    "behaviour": "Transparent rule-ranked recommendations tied to confirmed machining/inspection facts; add is idempotent.",
+    "tests": [
+      "test_usecase_add_and_dependencies"
+    ],
+    "gaps": "AI matching, richer gaps and recommendation-specific feedback need completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-H05",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to define our own use case with the AI's help, so that ideas from the floor become something we can plan.",
+    "acceptance_criteria": "Wizard: problem, stage, who is affected, how the data is captured today (paper, spreadsheet, system, sensor), systems involved, expected outcome and KPI; the AI drafts a one-page charter, classifies the step and autonomy level and lists prerequisites and data needs; the user edits and saves.",
+    "status": "Partial",
+    "behaviour": "Custom wizard, editable fields and AI charter document action.",
+    "tests": [
+      "test_usecase_add_and_dependencies"
+    ],
+    "gaps": "AI level classification and full charter journey not independently validated.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-H06",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want a readiness check per use case, so that we know what has to exist before it can run.",
+    "acceptance_criteria": "Four dimensions (data, process, people, systems) with 3 to 5 questions each; a readiness rating and gap list; the level the use case needs against where we are today.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-H07",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want a road map board, so that our use cases are sequenced the way the method says.",
+    "acceptance_criteria": "A 2x2 of business impact against readiness to deploy with quadrants Quick wins, Strategic bets, Momentum builders and Later; a programme view by horizon (H1 to H3) on a multi-year line; drag and drop; dependencies shown as \"needs the data created by\"; export as a document.",
+    "status": "Partial",
+    "behaviour": "Drag/drop quadrants, horizon timeline, dependencies API and roadmap export.",
+    "tests": [
+      "test_usecase_add_and_dependencies"
+    ],
+    "gaps": "Four readiness dimensions and year are editable; dependency editing UI and dynamic programme layout need completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-H08",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want a self-service lite assessment, so that we can prepare the ground before a full audit.",
+    "acceptance_criteria": "Five stages in self-service form: KPI alignment questions, a pain-point interview in chat, stage-by- stage capture of each line or machine with data, human and material lanes, a document checklist, and a preliminary readiness summary with recommended quick wins; every output is labelled preliminary.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-H09",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want to request an Atomic Assessment from inside the platform, so that the next step is one click away.",
+    "acceptance_criteria": "Form pre-filled from the profile, use cases and readiness; routed to Atomic Loops and the Operator; statuses Requested, Scheduled, In progress, Report delivered visible to the company.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-H10",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want learning content per stage, so that I understand each use case before I commit to it.",
+    "acceptance_criteria": "Short explainer, an anonymised example and the \"what we need from the plant\" list per stage; a glossary in both languages.",
+    "status": "Partial",
+    "behaviour": "Draft stage learning/glossary foundation.",
+    "tests": [
+      "browser Workspace route ai-use-cases"
+    ],
+    "gaps": "Complete approved bilingual teaching material unavailable.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-I01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want to rate any AI output in one click and say why, so that the AI improves on what matters to us.",
+    "acceptance_criteria": "Thumbs up or down, a reason from a short list and free text on every message, profile fact, document, recommendation and charter; non- blocking; stored with a reference to the output.",
+    "status": "Partial",
+    "behaviour": "Thumb ratings with target references on implemented outputs.",
+    "tests": [
+      "test_feedback_and_admin_reply"
+    ],
+    "gaps": "Reason/free-text capture is global; per-output detail flow needs completion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-I02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want a feedback widget on every page, so that I can report anything, anywhere.",
+    "acceptance_criteria": "Categories: bug, idea, confusing, wrong, praise; free text; optional screenshot; page, role and language captured automatically.",
+    "status": "Implemented",
+    "behaviour": "Global category/text widget, screenshot upload, role/page/language capture.",
+    "tests": [
+      "browser Workspace route feedback"
+    ],
+    "gaps": "Screenshot is an uploaded image; no OCR.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-I03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want to report a wrong fact where I see it, so that the profile is corrected quickly.",
+    "acceptance_criteria": "The fact is marked Disputed; the correct value is requested; the item goes to the review queue and the inbox.",
+    "status": "Implemented",
+    "behaviour": "Fact dispute, correction payload, review and inbox.",
+    "tests": [
+      "test_fact_review_history_and_rejection"
+    ],
+    "gaps": "Dispute correction UI is minimal.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-I04",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want to see what happened to my feedback, so that giving it feels worthwhile.",
+    "acceptance_criteria": "Statuses Received, In review, Addressed; the reply from the Operator or Atomic Loops shown under the item.",
+    "status": "Implemented",
+    "behaviour": "User feedback history, statuses and Operator reply.",
+    "tests": [
+      "test_feedback_and_admin_reply"
+    ],
+    "gaps": "",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-I05",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Super Admin, I want feedback analytics, so that I can report on satisfaction and spot problem areas.",
+    "acceptance_criteria": "Volume, positive rate, by feature and by company in aggregate, trend over time; export.",
+    "status": "Partial",
+    "behaviour": "Analytics API by date/company/feature and CSV.",
+    "tests": [
+      "test_feedback_and_admin_reply"
+    ],
+    "gaps": "Detailed trend/feature charts not exposed in UI.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-I06",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Platform Admin, I want feedback and the related output in the evaluation set, so that prompts and models are tuned on real cases.",
+    "acceptance_criteria": "Available only where the company's consent setting allows; never used to train third-party models; personal data removed before use.",
+    "status": "Partial",
+    "behaviour": "Consent gate, local redaction, review acknowledgement and evaluation export.",
+    "tests": [
+      "test_eval_export_requires_consent",
+      "test_redaction"
+    ],
+    "gaps": "Automated redaction is not guaranteed anonymisation; reviewer must inspect preview.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-I07",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Super Admin, I want a short quarterly in-app survey, so that we measure satisfaction consistently.",
+    "acceptance_criteria": "Three questions, once per quarter per user, dismissible; results on the dashboard.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-J01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want notifications in the app and by email digest, so that I act when something waits on me.",
+    "acceptance_criteria": "Events: invitation, step waiting on me, document ready, feedback answered, announcement; per-user preferences; daily or weekly digest.",
+    "status": "Partial",
+    "behaviour": "Notification centre, preferences, daily/weekly database-backed digests and outbox.",
+    "tests": [
+      "test_digest_deduplication"
+    ],
+    "gaps": "Some event hooks and optional SMTP delivery are not complete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-J02",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Company Admin, I want an activity feed, so that I see what the team and the AI changed.",
+    "acceptance_criteria": "Facts confirmed, documents created, use cases added, workflows started and completed, with actor and time.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-J03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want workspace settings, so that we control our data and our team.",
+    "acceptance_criteria": "Name, logo, default language, members, Coordinator access, sharing with the Operator, data retention, export of all data (documents, profile, chats as JSON and Markdown in a ZIP) and a deletion request.",
+    "status": "Partial",
+    "behaviour": "Name/language/instructions/retention/members/grants/sharing, ZIP and deletion request.",
+    "tests": [
+      "test_workspace_zip_export",
+      "test_coordinator_read_comment_scope"
+    ],
+    "gaps": "Logo upload is present; complete approved deletion execution remains incomplete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-J04",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a new user, I want a guided tour and help, so that I am productive on day one.",
+    "acceptance_criteria": "First-run tour, help articles in both languages, contextual tips, an onboarding checklist on home that ticks itself off.",
+    "status": "Partial",
+    "behaviour": "Tour, contextual first steps and gap checklist.",
+    "tests": [
+      "browser English login and workspace redirect"
+    ],
+    "gaps": "Full bilingual help articles and automatic completed checklist are incomplete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-J05",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As any user, I want to search across everything in the workspace, so that I find what the AI and the team produced.",
+    "acceptance_criteria": "Profile, chats, documents, sources and use cases searchable with filters by type and date.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-J06",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As the platform, I must record consent, so that personal data and feedback are used lawfully.",
+    "acceptance_criteria": "Terms and privacy notice accepted at first sign-in; consent to Operator visibility and to feedback use are explicit settings with their change history.",
+    "status": "Partial",
+    "behaviour": "Invitation terms acceptance, distinct feedback-use consent and change records.",
+    "tests": [
+      "test_invitation_accept_replay_and_language",
+      "test_eval_export_requires_consent"
+    ],
+    "gaps": "Seed-account first-login notice and legal review are incomplete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K01",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want every interface element in Japanese and in English, so that I never meet an untranslated screen.",
+    "acceptance_criteria": "Navigation, buttons, forms, tables, charts, dashboards, emails, error messages and help exist in both languages; Japanese is the default for company workspaces; the language toggle is on every page; an automated test fails the build on any missing string; screenshots of every page in both languages are reviewed before release.",
+    "status": "Partial",
+    "behaviour": "226 paired JA/EN resource keys and persistent language switch.",
+    "tests": [
+      "frontend-checks.txt",
+      "browser Japanese language toggle and font asset"
+    ],
+    "gaps": "Some hard-coded statuses/secondary content are still English.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K02",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Member, I want the AI to reply in my language and switch when I ask, so that the chat feels native.",
+    "acceptance_criteria": "Replies follow the user's language; a chat can be switched to the other language; a mixed- language message (a Japanese question with English product names) is handled; a single reply in the other language is available on request.",
+    "status": "Implemented",
+    "behaviour": "User/request language passed to real model; mixed-script inputs supported.",
+    "tests": [
+      "live Real Japanese grounded chat",
+      "live Real English unknown-revenue answer"
+    ],
+    "gaps": "Human quality review still required.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K03",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want every generated output in the workspace language and available in the other language on demand, so that the same material serves Japanese and overseas readers.",
+    "acceptance_criteria": "Profile, facts, documents, charters, recommendations and the road map are generated in the workspace language; a one- click version in the other language is produced; the workspace glossary and Appendix F keep terminology consistent across both.",
+    "status": "Partial",
+    "behaviour": "Workspace-language documents, selected-text translation and glossary foundations.",
+    "tests": [
+      "live Real Japanese document generation and PDF export"
+    ],
+    "gaps": "One-click alternate versions for every output are not complete.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K04",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Company Admin, I want the AI to read our Japanese bsite and documents rrectly, so that the profile is ilt from what we actually blish.",
+    "acceptance_criteria": "Japanese encodings, vertical text in PDFs where feasible and Japanese OCR are handled; facts are stored in the source language and shown with a translation labelled \"translated\" when the viewer's language differs.",
+    "status": "Partial",
+    "behaviour": "Selectable Japanese PDFs/HTML and original text; Japanese embedding model.",
+    "tests": [
+      "test_plain_pdf_docx_xlsx_pptx_extraction",
+      "test_scanned_pdf_explicit_limitation"
+    ],
+    "gaps": "OCR deferred; vertical layout/encoding corpus and translation labels require expansion.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K05",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Platform Admin, I want the library and the explainer content to be bilingual by construction, so that nothing reaches a company in one language only.",
+    "acceptance_criteria": "Every use case, stage and explainer has Japanese and English fields; publishing is blocked until both exist; the Operator's reviewer approves the Japanese wording (OQ-10).",
+    "status": "Partial",
+    "behaviour": "Paired library fields, draft states and version-aware Operator publication gate.",
+    "tests": [
+      "test_bilingual_publish_gate"
+    ],
+    "gaps": "Actual Operator Japanese approval not provided.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K06",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want dashboards and charts labelled in my language with local formats, so that numbers read correctly.",
+    "acceptance_criteria": "Axis labels, legends, statuses and tooltips in both languages; numbers, dates and currency formatted per locale, yen formatted per locale; ISO dates in admin exports.",
+    "status": "Partial",
+    "behaviour": "Locale-formatted UI dates, numeric basics and ISO exports.",
+    "tests": [
+      "browser Japanese language toggle and font asset"
+    ],
+    "gaps": "All chart/status/currency formatting needs comprehensive validation.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K07",
+    "priority": "Should",
+    "included": true,
+    "scope_reason": "Explicitly included v1 or supporting capability",
+    "story": "As a Member, I want search and retrieval to work across languages, so that an English source answers a Japanese question.",
+    "acceptance_criteria": "A query in either language retrieves sources in both; citations show the source's original language.",
+    "status": "Partial",
+    "behaviour": "Multilingual embeddings and tenant-scoped semantic retrieval.",
+    "tests": [
+      "test_tenant_vector_retrieval",
+      "live Real multilingual embedding and structured extraction"
+    ],
+    "gaps": "Japanese-to-English relevance corpus is not yet evaluated.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K08",
+    "priority": "Could",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Member, I want voice to work in Japanese and in English st without choosing first, so that I can just speak.",
+    "acceptance_criteria": "Language detected per utterance; transcript ored in the spoken language; spoken replies in the user's language (v1.1).",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-K09",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As a Japanese user, I want typing and reading to behave correctly, so that the interface feels like a Japanese product.",
+    "acceptance_criteria": "IME composition handled in every field, including the chat composer; Japanese line- breaking rules; fonts with full JIS coverage on web and in exports.",
+    "status": "Partial",
+    "behaviour": "IME-safe chat Enter handling, bundled Japanese font and CJK PDF wrapping.",
+    "tests": [
+      "test_i18n_keys_and_ime_guard_present",
+      "test_export_formats_and_japanese_font",
+      "browser Mobile workspace layout"
+    ],
+    "gaps": "Full JIS typography and current/previous browser matrix not verified.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  },
+  {
+    "id": "US-K10",
+    "priority": "Should",
+    "included": false,
+    "scope_reason": "SRS later release",
+    "story": "As a Super Admin or Coordinator, I want to read a company's shared content in my own language, so that I can prepare without a translator.",
+    "acceptance_criteria": "Shared sections and feedback shown in the viewer's language with a \"translated by AI\" marker where the original differs; exports keep the original language unless a translation is requested.",
+    "status": "Deferred",
+    "behaviour": "Not built in this phase.",
+    "tests": [],
+    "gaps": "Deferred to v1.1.",
+    "evidence": []
+  },
+  {
+    "id": "US-K11",
+    "priority": "Must",
+    "included": true,
+    "scope_reason": "SRS Must",
+    "story": "As any user, I want notifications and emails in my language, so that nothing arrives in a language I do not read.",
+    "acceptance_criteria": "Every template exists in both languages; the recipient's language setting decides; the invitation email follows the workspace default until the user chooses.",
+    "status": "Partial",
+    "behaviour": "Bilingual invitation/reset and notification digest templates.",
+    "tests": [
+      "test_invitation_accept_replay_and_language",
+      "test_digest_deduplication"
+    ],
+    "gaps": "All event wording and recipient-language combinations need review.",
+    "evidence": [
+      "evidence/all-junit.xml",
+      "evidence/browser-results.json",
+      "evidence/live-model-results.json"
+    ]
+  }
+]

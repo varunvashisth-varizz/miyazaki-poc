@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ADR-001",
+    "decision": "FastAPI modular monolith with a built React frontend",
+    "why": "Streaming AI and a single portable application process; React provides admin and workspace interfaces.",
+    "alternative": "Django plus a separate frontend server",
+    "consequence": "Authentication, administration and background lifecycle must be implemented explicitly."
+  },
+  {
+    "id": "ADR-002",
+    "decision": "PostgreSQL with pgvector and exact tenant-filtered cosine search",
+    "why": "User explicitly requested pgvector; demo scale does not justify approximate indexing.",
+    "alternative": "NumPy search over array columns, or HNSW immediately",
+    "consequence": "Host must install the vector extension; model dimensions and identity are validated."
+  },
+  {
+    "id": "ADR-003",
+    "decision": "Durable database jobs, one I/O thread, one AI thread and APScheduler",
+    "why": "Avoid Redis/Celery and a second terminal while preserving restartable work.",
+    "alternative": "External queue and workers",
+    "consequence": "Run one Uvicorn process; horizontal scaling requires a later lifecycle design."
+  },
+  {
+    "id": "ADR-004",
+    "decision": "Ollama generation and embedding adapters are separate",
+    "why": "Local demo now, generation-provider migration later without changing business APIs.",
+    "alternative": "Call a provider directly from each feature",
+    "consequence": "Changing embeddings requires explicit re-indexing; no fallback pretending to be a fresh model result."
+  },
+  {
+    "id": "ADR-005",
+    "decision": "Japanese OCR deferred; image upload and preview remain available",
+    "why": "Explicit user clarification overrides the all-Must brief for scanned documents.",
+    "alternative": "Install optional OCR models",
+    "consequence": "US-E05, F01 and K04 cannot be claimed fully complete for image/scanned text interpretation."
+  },
+  {
+    "id": "ADR-006",
+    "decision": "Default mail goes to an authenticated, scoped in-app outbox",
+    "why": "Offline demo without SMTP or external sending.",
+    "alternative": "Transactional email provider",
+    "consequence": "Local demo only; outbox messages contain sensitive invitation/reset links."
+  },
+  {
+    "id": "ADR-007",
+    "decision": "Closed resource kinds share a versioned JSONB record table; identity, vectors, jobs and usage use dedicated tables",
+    "why": "Common history, ownership and review mechanics reduce duplication across the SRS.",
+    "alternative": "A distinct SQL table for every content entity",
+    "consequence": "Service validation and scoped access tests are essential; JSON relations need explicit checks."
+  },
+  {
+    "id": "ADR-008",
+    "decision": "Keep reported scope separate from verified acceptance",
+    "why": "The 98-story ledger must not label planned or partial work as complete.",
+    "alternative": "Feature checklist without evidence",
+    "consequence": "Reports retain failures, blocked tests, production gaps and external content approvals."
+  },
+  {
+    "id": "ADR-009",
+    "decision": "Use qwen2.5:3b as the tested generation default; keep Qwen3 configurable",
+    "why": "Ollama 0.40.3 with qwen3:4b emitted reasoning rather than the requested final greeting, including with think=false and /no_think. The comparison model returned a correct short Japanese greeting.",
+    "alternative": "Upgrade the user\u2019s Ollama installation or keep an unreliable Qwen3 demo default",
+    "consequence": "One additional downloaded model; model name remains configurable. Qwen3 is not removed from the user\u2019s machine."
+  },
+  {
+    "id": "ADR-010",
+    "decision": "Use confirmed evidence for documents and block known unverified high-risk claims before publishing",
+    "why": "A real-model draft asserted a proposed certification. The regression exposed both context eligibility and a missing marker after Markdown headings.",
+    "alternative": "Rely only on instructions and a footer disclaimer",
+    "consequence": "Documents exclude proposed facts, uncited prose gets paragraph markers, known unverified certification/revenue values are rejected, and one real-model correction is attempted before failing safely. Semantic factual evaluation remains incomplete."
+  }
+]

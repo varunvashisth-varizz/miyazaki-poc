@@ -1,0 +1,18 @@
+{
+  "frontend": true,
+  "postgres": true,
+  "pgvector": "0.8.1",
+  "models": [
+    "bge-m3:latest",
+    "qwen3:4b"
+  ],
+  "demo_mode": true,
+  "mfa_bypass": true,
+  "ocr": "Deferred by scope",
+  "schema": 1,
+  "storage_writable": true,
+  "seed_companies": 2,
+  "embedding_dimension": 1024,
+  "vector_smoke_distance": 0.0,
+  "compatibility_observation": "Initial Qwen3/Ollama smoke produced reasoning rather than final answers. See ADR-009."
+}
